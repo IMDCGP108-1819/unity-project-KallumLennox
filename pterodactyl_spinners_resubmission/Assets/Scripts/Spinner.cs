@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using UnityEngine.SceneManagement; //This function allows for manipulation of the scenes in the code. Allowing to decide which scenes are are on screen at anytime. 
 
 public class Spinner : MonoBehaviour
    
@@ -14,7 +14,6 @@ public class Spinner : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            Scene = SceneManager.GetActiveScene();
             SceneManager.LoadScene("Level1");
         }
     }
