@@ -21,7 +21,9 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         float newXposition = Input.GetAxis("Horizontal") * MoveSpeedModifier; 
-        rigidBody.velocity = new Vector3(newXposition, rigidBody.velocity.y); 
+        rigidBody.velocity = new Vector3(newXposition, rigidBody.velocity.y);
+
+        Vector3 characterScale = transform.localScale; 
 
         if (Input.GetButtonDown("Jump") && canJump == true)
         {
@@ -48,6 +50,16 @@ public class PlayerController : MonoBehaviour
         {
             this.GetComponent<SpriteRenderer>().sprite = PlayerIdle;
         }
+
+        if (Input.GetAxis("Horizontal") < 0)
+        {
+            characterScale.x = 1.4f;
+        }
+        if (Input.GetAxis("Horizontal") > 0)
+        {
+            characterScale.x = -1.4f;
+        }
+        transform.localScale = characterScale;
     }
 
     private void OnCollisionEnter2D(Collision2D collision) //this function ensures that when we land back on to the platform we will be able to jump again. 
