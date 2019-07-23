@@ -1,0 +1,2 @@
+C:\Users\Sean\Documents\GitHub\unity-project-KallumLennox\pterodactyl_spinners_resubmission\obj\Debug\Assembly-CSharp.csprojAssemblyReference.cache
+C:\Users\Sean\Documents\GitHub\unity-project-KallumLennox\pterodactyl_spinners_resubmission\obj\Debug\Assembly-CSharp.csproj.CoreCompileInputs.cache

@@ -12,7 +12,10 @@ public class PlayerController : MonoBehaviour
     public float SoarForce = 15f;
 
     public bool canJump = true; //A boolean variable is a true or flase variable and this function will control if the player can jump 
+    public bool InAir = false; // A true or false variable that checks if the player is jumping. 
 
+    public Sprite PlayerIdle, PlayerFly; //This public variable defines my two sprites and lets me reference them later. 
+    
     // A FixedUpdate is called at a set rate, this is set to be called every 60 frames. 
     // These functions control the horizontal movement of the player and the players ability to jump. 
     void FixedUpdate()
@@ -24,7 +27,8 @@ public class PlayerController : MonoBehaviour
         {
             rigidBody.AddForce(new Vector2(0.0f, moveForce), ForceMode2D.Impulse);
 
-            canJump = false; //this statatement recognises when the jump button is pressed and will send the player up, while also making sure that we can jump again while in the air. 
+            canJump = false;
+            InAir = true; //this statatement recognises when the jump button is pressed and will send the player up, while also making sure that we can jump again while in the air. 
         }
 
         if (Input.GetKeyDown(KeyCode.W) && canJump == true) // this is the function that allows the player to soar when the canJump variable is true.
@@ -33,6 +37,16 @@ public class PlayerController : MonoBehaviour
             rigidBody.AddForce(new Vector2(0.0f, SoarForce), ForceMode2D.Impulse);
 
             canJump = false;
+            InAir = true;
+        }
+
+        if (InAir == true)
+        {
+            this.GetComponent<SpriteRenderer>().sprite = PlayerFly;
+        }
+        else
+        {
+            this.GetComponent<SpriteRenderer>().sprite = PlayerIdle;
         }
     }
 
@@ -41,6 +55,7 @@ public class PlayerController : MonoBehaviour
         if (collision.collider.CompareTag("Platform"))
         {
             canJump = true;
+            InAir = false;
         }
     }
 
