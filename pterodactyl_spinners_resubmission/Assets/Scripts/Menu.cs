@@ -7,7 +7,7 @@ public class Menu : MonoBehaviour
 {
     public void PlayGame ()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); // this function reads the build index of the game and ads one when the button is pressed and the changes scene
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); // When this code is run, the next scene in the build index will be made active. 
     }
 
     public void quitGame ()
@@ -18,7 +18,7 @@ public class Menu : MonoBehaviour
 
     public void RetryGame ()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1); //this function takes you back to the game 
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1); // This function will take you back and load the previous scene in the build index. 
     }
 }
     
