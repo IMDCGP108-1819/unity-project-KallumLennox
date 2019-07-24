@@ -5,16 +5,18 @@ using UnityEngine.SceneManagement; //This function allows for manipulation of th
 
 public class Spinner : MonoBehaviour
    
-{// these functions reset the level if a player hit one of the spinners
+{
     private Scene  Scene;
 
-    
-    private void OnTriggerEnter2D(Collider2D collision) 
+    // A private variable that is only accessed by memebers of the same class
+    // A void function is a function that will not return any values or information
+
+    private void OnTriggerEnter2D(Collider2D collision) // This is a private function used to detect collisions with another object. 
        
     {
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("Player")) // If an object with tagged "Player" collides with the Spinner,
         {
-            SceneManager.LoadScene("Level1");
+            SceneManager.LoadScene("Level1"); // The Level will reload, thus starting the player back at the start of the level. 
         }
     }
 }
